@@ -1,5 +1,5 @@
 {
-  "name": ".-backend",
+  "name": "studuy-api",
   "version": "1.0.0",
   "main": "dist/server.js",
   "scripts": {
