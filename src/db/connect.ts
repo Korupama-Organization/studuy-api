@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import { disconnectRedis } from '../utils/redis';
 
 const connectDB = async (): Promise<void> => {
     const uri = process.env.MONGODB_URI;
@@ -18,6 +19,7 @@ const connectDB = async (): Promise<void> => {
 
 // Graceful disconnect on app termination
 process.on('SIGINT', async () => {
+    await disconnectRedis();
     await mongoose.disconnect();
     console.log('MongoDB disconnected on app termination');
     process.exit(0);

@@ -18,6 +18,8 @@ export interface IUser extends Document {
     email: string;
     phone: string;
     password: string;
+    emailVerified: boolean;
+    passwordUpdatedAt?: Date;
     role: 'student' | 'teacher' | 'admin';
     avatar?: string;
     /** Authentication provider: 'local' | 'google' | 'facebook' */
@@ -53,6 +55,8 @@ const UserSchema = new Schema<IUser>(
         email: { type: String, required: true, unique: true, lowercase: true, trim: true },
         phone: { type: String, required: true, unique: true },
         password: { type: String, required: true, select: false }, // Excluded from queries by default
+        emailVerified: { type: Boolean, default: false },
+        passwordUpdatedAt: { type: Date },
         role: {
             type: String,
             enum: ['student', 'teacher', 'admin'],

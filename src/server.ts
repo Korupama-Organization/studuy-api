@@ -42,7 +42,7 @@ app.use('/api/auth', authRoutes);
 const start = async () => {
     await connectDB();
     app.listen(PORT, () => {
-        console.log(`Server is up and running at http://localhost:${PORT} 🚀`);
+        console.log(`Server is up and running at http://localhost:${PORT} `);
     });
 };
 

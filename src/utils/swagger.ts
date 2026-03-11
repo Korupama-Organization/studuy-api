@@ -59,6 +59,47 @@ const options: swaggerJSDoc.Options = {
                         },
                     },
                 },
+                VerifyOtpRequest: {
+                    type: 'object',
+                    required: ['email', 'otp'],
+                    properties: {
+                        email: { type: 'string', format: 'email', example: 'nguyenvana@example.com' },
+                        otp: { type: 'string', example: '123456' },
+                    },
+                },
+                LoginRequest: {
+                    type: 'object',
+                    required: ['email', 'password'],
+                    properties: {
+                        email: { type: 'string', format: 'email', example: 'nguyenvana@example.com' },
+                        password: { type: 'string', example: 'secret123' },
+                    },
+                },
+                RefreshTokenRequest: {
+                    type: 'object',
+                    required: ['refresh_token'],
+                    properties: {
+                        refresh_token: { type: 'string', example: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...' },
+                    },
+                },
+                ForgotPasswordRequest: {
+                    type: 'object',
+                    required: ['email'],
+                    properties: {
+                        email: { type: 'string', format: 'email', example: 'nguyenvana@example.com' },
+                    },
+                },
+                ResetPasswordRequest: {
+                    type: 'object',
+                    required: ['reset_password_token', 'new_password'],
+                    properties: {
+                        reset_password_token: {
+                            type: 'string',
+                            example: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...',
+                        },
+                        new_password: { type: 'string', minLength: 6, example: 'newSecret123' },
+                    },
+                },
                 UserResponse: {
                     type: 'object',
                     properties: {
@@ -70,6 +111,8 @@ const options: swaggerJSDoc.Options = {
                         avatar: { type: 'string', example: 'https://i.pravatar.cc/150' },
                         authProvider: { type: 'string', example: 'local' },
                         isBlocked: { type: 'boolean', example: false },
+                        emailVerified: { type: 'boolean', example: false },
+                        passwordUpdatedAt: { type: 'string', format: 'date-time', nullable: true },
                         createdAt: { type: 'string', format: 'date-time' },
                         updatedAt: { type: 'string', format: 'date-time' },
                     },
