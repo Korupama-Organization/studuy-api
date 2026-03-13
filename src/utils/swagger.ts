@@ -91,9 +91,9 @@ const options: swaggerJSDoc.Options = {
                 },
                 ResetPasswordRequest: {
                     type: 'object',
-                    required: ['reset_password_token', 'new_password'],
+                    required: ['reset_token', 'new_password'],
                     properties: {
-                        reset_password_token: {
+                        reset_token: {
                             type: 'string',
                             example: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...',
                         },
@@ -120,7 +120,7 @@ const options: swaggerJSDoc.Options = {
                 ErrorResponse: {
                     type: 'object',
                     properties: {
-                        error: { type: 'string', example: 'Email already exists in system' },
+                        error: { type: 'string', example: 'Error message' },
                     },
                 },
             },
